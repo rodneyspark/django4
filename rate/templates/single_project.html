@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% load bootstrap4 %} {% load static %} {% block content %}
+<div class="container-fluid">
+    <div style=padding-top:120px;></div>
+    <div class="row">
+        <div class=" col-sm-12 col-md-6 " style="padding-left: 80px;">
+            <div class="card" style="width:600px">
+                <h4 style="text-align: center;" class="card-title pictitle"> {{project.title}} </h4>
+                <img class="card-img-top" width="500px" src=" {{project.image.url}}" alt="{{post.name}}">
+                <div class="card-body" style="text-align: center;">
+                    <h4 class="card-title"> {{project.description}}</h4>
+                    <a href=" {{project.link}} "> {{project.link}} </a>
+                    <p class="card-text"><b>Posted by:</b> {{project.user}} </p>
+                    <div class="row">
+                  
+                        <div class=" col-sm-6 col-md-6 ">
+                            <p><b>Ratings</b></p>
+                            <p>Design: {{design}}% </p>
+                            <p>Usability: {{usability}}% </p>
+                            <p>Content: {{content}}% </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 " style="padding-left: 10px;">
+            <div class="card" style="width:350px; padding-left: 20px;">
+                <form action=" {%url 'rates' project.id  %}" method="POST">
+                    {% csrf_token %}
+                    <h2>Design</h2>
+                    <input type="checkbox" name="design" id="design" value="1">1
+                    <input type="checkbox" name="design" id="design" value="2">2
+                    <input type="checkbox" name="design" id="design" value="3">3
+                    <input type="checkbox" name="design" id="design" value="4">4
+                    <input type="checkbox" name="design" id="design" value="5">5
+                    <input type="checkbox" name="design" id="design" value="6">6
+                    <input type="checkbox" name="design" id="design" value="7">7
+                    <input type="checkbox" name="design" id="design" value="8">8
+                    <input type="checkbox" name="design" id="design" value="9">9
+                    <input type="checkbox" name="design" id="design" value="10">10 <br>
+                    <h2>Content</h2>
+                    <input type="checkbox" name="content" id="design" value="1">1
+                    <input type="checkbox" name="content" id="design" value="2">2
+                    <input type="checkbox" name="content" id="design" value="3">3
+                    <input type="checkbox" name="content" id="design" value="4">4
+                    <input type="checkbox" name="content" id="design" value="5">5
+                    <input type="checkbox" name="content" id="design" value="6">6
+                    <input type="checkbox" name="content" id="design" value="7">7
+                    <input type="checkbox" name="content" id="design" value="8">8
+                    <input type="checkbox" name="content" id="design" value="9">9
+                    <input type="checkbox" name="content" id="design" value="10">10 <br>
+                    <h2>Usability</h2>
+                    <input type="checkbox" name="usability" id="design" value="1">1
+                    <input type="checkbox" name="usability" id="design" value="2">2
+                    <input type="checkbox" name="usability" id="design" value="3">3
+                    <input type="checkbox" name="usability" id="design" value="4">4
+                    <input type="checkbox" name="usability" id="design" value="5">5
+                    <input type="checkbox" name="usability" id="design" value="6">6
+                    <input type="checkbox" name="usability" id="design" value="7">7
+                    <input type="checkbox" name="usability" id="design" value="8">8
+                    <input type="checkbox" name="usability" id="design" value="9">9
+                    <input type="checkbox" name="usability" id="design" value="10">10 <br>
+                    <input type="submit" class="btn-success" style="margin-left: 30%;" value="Rate"> {% for message in messages %}
+                    <h2> {{message}} </h2>
+                    {% endfor %}
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<style>
+    body{
+        background-image: url(/static/images/award2.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+{% endblock %}

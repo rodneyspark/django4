@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+
+{%block content%}
+<div style ="margin-top: 100px; ">
+<div class="container">
+    <h3 class="text-center" style="font-family: 'Lobster Two', cursive;">Add a new project</h3>
+    <div class="col-sm-6 m-auto card">
+        <form action="{%url 'new_project'%}" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+
+            {% bootstrap_form form%}
+            <input type="submit" class="btn btn-info btn-lg btn-center" value="Post">
+        </form>
+    </div>
+</div>
+</div>
+<style>
+    body{
+        background-image: url(/static/award1.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+{% endblock %}
