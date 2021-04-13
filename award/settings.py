@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'award.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'award',
-        'USER': 'moringaaccess',
-    'PASSWORD':'Kennedy',
+        'NAME': 'awards',
+        'USER': 'user',
+    'PASSWORD':'12Rodney@',
     }
 }
 
